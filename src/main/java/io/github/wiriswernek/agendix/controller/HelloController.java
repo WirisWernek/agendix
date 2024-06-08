@@ -22,4 +22,22 @@ public class HelloController {
 		return ResponseEntity.ok( "Hello - Admin: " + authentication.getName() );
 	}
 
+	@GetMapping( "/hello-prestador" )
+	@PreAuthorize("hasRole('PRESTADOR')")
+	public ResponseEntity<String> helloPrestador( Authentication authentication) {
+		return ResponseEntity.ok( "Hello - Prestador: " + authentication.getName() );
+	}
+	
+	@GetMapping( "/hello-cliente" )
+	@PreAuthorize("hasRole('CLIENTE')")
+	public ResponseEntity<String> helloCliente( Authentication authentication) {
+		return ResponseEntity.ok( "Hello - Cliente: " + authentication.getName() );
+	}
+	
+	@GetMapping( "/hello-visitante" )
+	@PreAuthorize("hasRole('VISITANTE')")
+	public ResponseEntity<String> helloVisitante( Authentication authentication) {
+		return ResponseEntity.ok( "Hello - Cliente: " + authentication.getName() );
+	}
+
 }

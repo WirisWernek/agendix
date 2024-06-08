@@ -26,7 +26,8 @@ public class UsuarioController implements BaseController<UsuarioDTO> {
 	@GetMapping("/")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity getAll() {
-		return ResponseEntity.ok(service.getAll());
+		// return ResponseEntity.ok(service.getAll());
+		return null;
 	}
 
 	@Override
@@ -39,7 +40,8 @@ public class UsuarioController implements BaseController<UsuarioDTO> {
 	@PostMapping("/")
 	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity insert(@RequestBody UsuarioDTO dto) {
-		return ResponseEntity.ok(service.insert(dto));
+		// return ResponseEntity.ok(service.insert(dto));
+		return null;
 	}
 
 	@Override
