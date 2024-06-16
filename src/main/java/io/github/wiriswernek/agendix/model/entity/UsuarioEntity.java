@@ -49,6 +49,28 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@NotNull(message = "O Email não pode ser nulo!")
 	@NotBlank(message = "O Email não pode ser vazio!")
 	private String email;
+	
+	@Column(name = "CPF")
+	@NotNull(message = "O CPF não pode ser nulo!")
+	@NotBlank(message = "O CPF não pode ser vazio!")
+	private String cpf;
+
+	@Column(name = "TELEFONE")
+	@NotNull(message = "O Telefone não pode ser nulo!")
+	@NotBlank(message = "O Telefone não pode ser vazio!")
+	private String telefone;
+
+	@Column(name = "WHATSAPP")
+	@NotBlank(message = "O WhatsApp não pode ser vazio!")
+	private String whatsapp;
+	
+	@Column(name = "OBSERVACOES")
+	@NotBlank(message = "As Observações não podem ser vazias!")
+	private String observacoes;
+
+	@Column(name = "DATA_NASCIMENTO")
+	@NotNull(message = "Data de Criação não pode ser nula!")
+	private LocalDateTime dataNascimento;
 
 	@Column(name = "ATIVO")
 	@NotNull(message = "O Status não pode ser nulo!")
@@ -63,10 +85,6 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@NotNull(message = "O Nome não pode ser nulo!")
 	@NotBlank(message = "O Nome não pode ser vazio!")
 	private String nome;
-
-	@Column(name = "ID_ORGANIZACAO")
-	@NotNull(message = "IdOrganização não pode ser nulo!")
-	private Long idOrganizacao;
 
 	@Column(name = "DATA_CRIACAO")
 	@NotNull(message = "Data de Criação não pode ser nula!")
