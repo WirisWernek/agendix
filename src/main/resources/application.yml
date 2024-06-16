@@ -23,9 +23,3 @@ server:
   servlet: 
     context-path: /api
   port: 8080
-
-flyway:
-  url: jdbc:postgresql://localhost:5432/agendixdb
-  schemas: agendixdb
-  user: postgres
-  password: itix.123
