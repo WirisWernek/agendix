@@ -98,9 +98,9 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		if (this.role == TipoUsuarioEnum.ADMIN) {
+		if (this.role == TipoUsuarioEnum.ADMINISTRADOR) {
 			return List.of(
-					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.ADMIN.name()),
+					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.ADMINISTRADOR.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.CLIENTE.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.PRESTADOR.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name())
