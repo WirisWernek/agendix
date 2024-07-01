@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.config;
+package io.github.wiriswernek.agendix.configurations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
