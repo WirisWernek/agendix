@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.controller;
+package io.github.wiriswernek.agendix.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

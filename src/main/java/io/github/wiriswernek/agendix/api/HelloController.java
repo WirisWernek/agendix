@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.controller;
+package io.github.wiriswernek.agendix.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.controller.Base;
+package io.github.wiriswernek.agendix.api.Base;
 
 import java.util.List;
 
