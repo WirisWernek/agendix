@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.domain.service.Base;
+package io.github.wiriswernek.agendix.base;
 
 import java.lang.reflect.Type;
 import java.util.List;

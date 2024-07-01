@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.wiriswernek.agendix.api.Base.BaseController;
+import io.github.wiriswernek.agendix.base.BaseController;
 import io.github.wiriswernek.agendix.domain.service.UsuarioService;
 import io.github.wiriswernek.agendix.model.dto.UsuarioDTO;
 import lombok.RequiredArgsConstructor;

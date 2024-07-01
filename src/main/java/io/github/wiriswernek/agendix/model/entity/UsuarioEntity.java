@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import io.github.wiriswernek.agendix.model.entity.Base.BaseEntity;
+import io.github.wiriswernek.agendix.base.BaseEntity;
 import io.github.wiriswernek.agendix.model.enums.TipoUsuarioEnum;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

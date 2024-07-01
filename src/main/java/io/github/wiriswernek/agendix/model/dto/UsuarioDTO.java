@@ -3,7 +3,7 @@ package io.github.wiriswernek.agendix.model.dto;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import io.github.wiriswernek.agendix.model.dto.Base.BaseDTO;
+import io.github.wiriswernek.agendix.base.BaseDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

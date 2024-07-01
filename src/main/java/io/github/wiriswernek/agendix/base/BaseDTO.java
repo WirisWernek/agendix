@@ -1,4 +1,4 @@
-package io.github.wiriswernek.agendix.model.dto.Base;
+package io.github.wiriswernek.agendix.base;
 
 import lombok.Data;
 

@@ -1,10 +1,8 @@
-package io.github.wiriswernek.agendix.api.Base;
+package io.github.wiriswernek.agendix.base;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
-
-import io.github.wiriswernek.agendix.model.dto.Base.BaseDTO;
 
 public interface BaseController<T extends BaseDTO> {
 	public ResponseEntity getAll();

@@ -3,7 +3,7 @@ package io.github.wiriswernek.agendix.domain.service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import io.github.wiriswernek.agendix.domain.service.Base.BaseService;
+import io.github.wiriswernek.agendix.base.BaseService;
 import io.github.wiriswernek.agendix.model.dto.UsuarioDTO;
 import io.github.wiriswernek.agendix.model.entity.UsuarioEntity;
 import io.github.wiriswernek.agendix.model.repository.IUsuarioRepository;
