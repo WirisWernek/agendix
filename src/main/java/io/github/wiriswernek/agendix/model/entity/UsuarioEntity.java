@@ -86,16 +86,6 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@NotBlank(message = "O Nome não pode ser vazio!")
 	private String nome;
 
-	@Column(name = "DATA_CRIACAO")
-	@NotNull(message = "Data de Criação não pode ser nula!")
-	private LocalDateTime dataCriacao;
-
-	@Column(name = "DATA_EXCLUSAO")
-	private LocalDateTime dataExclusao;
-
-	@Column(name = "DATA_ATUALIZACAO")
-	private LocalDateTime dataAtualizacao;
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		if (this.role == TipoUsuarioEnum.ADMINISTRADOR) {
