@@ -14,9 +14,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -30,10 +30,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "USUARIO")
 public class UsuarioEntity extends BaseEntity implements UserDetails {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
-	private Long id;
 
 	@Column(name = "LOGIN")
 	@NotNull(message = "Login não pode ser nulo!")
@@ -49,7 +45,7 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@NotNull(message = "O Email não pode ser nulo!")
 	@NotBlank(message = "O Email não pode ser vazio!")
 	private String email;
-	
+
 	@Column(name = "CPF")
 	@NotNull(message = "O CPF não pode ser nulo!")
 	@NotBlank(message = "O CPF não pode ser vazio!")
@@ -63,7 +59,7 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@Column(name = "WHATSAPP")
 	@NotBlank(message = "O WhatsApp não pode ser vazio!")
 	private String whatsapp;
-	
+
 	@Column(name = "OBSERVACOES")
 	@NotBlank(message = "As Observações não podem ser vazias!")
 	private String observacoes;
@@ -86,6 +82,18 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 	@NotBlank(message = "O Nome não pode ser vazio!")
 	private String nome;
 
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+	private List<AgendamentoEntity> agendamentos;
+	
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+	private List<AtendimentoPersonalizadoEntity> personalizacao;
+
+	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+	private List<AvaliacaoEntity> avaliacoes;
+
+	@OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER)
+	private PrestadorEntity prestador;
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		if (this.role == TipoUsuarioEnum.ADMINISTRADOR) {
@@ -93,19 +101,16 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.ADMINISTRADOR.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.CLIENTE.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.PRESTADOR.name()),
-					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name())
-				);
+					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name()));
 		} else if (this.role == TipoUsuarioEnum.PRESTADOR) {
 			return List.of(
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.PRESTADOR.name()),
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.CLIENTE.name()),
-					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name())
-				);
+					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name()));
 		} else if (this.role == TipoUsuarioEnum.CLIENTE) {
 			return List.of(
 					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.CLIENTE.name()),
-					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name())
-				);
+					new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name()));
 		} else {
 			return List.of(new SimpleGrantedAuthority("ROLE_" + TipoUsuarioEnum.VISITANTE.name()));
 		}
