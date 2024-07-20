@@ -267,7 +267,7 @@ create table
 	if not exists agendamento (
 		id BIGSERIAL not null,
 		"data" DATE not null,
-		incio TIME not null,
+		inicio TIME not null,
 		fim TIME not null,
 		status STATUS_AGENDAMENTO not null,
 		justificativa_cancelamento_desistencia VARCHAR(200) null,

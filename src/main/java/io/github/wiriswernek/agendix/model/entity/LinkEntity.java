@@ -7,6 +7,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -22,6 +25,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "LINK")
 public class LinkEntity extends BaseEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
+
 	@Column(name = "TIPO")
 	@Enumerated(EnumType.STRING)
 	@NotNull(message = "O Tipo do Link não pode ser nulo!")
@@ -31,7 +39,7 @@ public class LinkEntity extends BaseEntity {
 	@NotNull(message = "O Nome não pode ser nulo!")
 	@NotBlank(message = "O Nome não pode ser vazio!")
 	private String nome;
-	
+
 	@Column(name = "URL")
 	@NotNull(message = "A Url não pode ser nula!")
 	@NotBlank(message = "A Url não pode ser vazia!")

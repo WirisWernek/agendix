@@ -11,6 +11,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -27,17 +30,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "AGENDAMENTO")
 public class AgendamentoEntity extends BaseEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
+
 	@Column(name = "DATA")
 	@NotNull(message = "A Data de Criação não pode ser nula!")
 	private LocalDateTime data;
 
 	@Column(name = "INICIO")
 	@NotNull(message = "A Hora do Início do Agendamento não pode ser nula!")
-	protected LocalTime inicio;
+	private LocalTime inicio;
 
 	@Column(name = "FIM")
 	@NotNull(message = "A Hora do Fim do Agendamento não pode ser nula!")
-	protected LocalTime fim;
+	private LocalTime fim;
 
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)

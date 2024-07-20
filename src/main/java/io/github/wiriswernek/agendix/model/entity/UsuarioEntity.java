@@ -15,6 +15,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -30,6 +33,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "USUARIO")
 public class UsuarioEntity extends BaseEntity implements UserDetails {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
+	private Long id;
 
 	@Column(name = "LOGIN")
 	@NotNull(message = "Login não pode ser nulo!")
@@ -84,7 +91,7 @@ public class UsuarioEntity extends BaseEntity implements UserDetails {
 
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
 	private List<AgendamentoEntity> agendamentos;
-	
+
 	@OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
 	private List<AtendimentoPersonalizadoEntity> personalizacao;
 
